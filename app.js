@@ -22,6 +22,6 @@ app.use(methodOverride('_method'))
 app.use(routes)
 
 app.listen(PORT, () => {
-  console.log('Express Server listening on http://localhost:${PORT}')
-  console.log('You press『 ⌃ + C 』to disconnect Express Server')
+  console.log(`Express Server listening on http://localhost:${PORT}`)
+  console.log('You can press『 ⌃ + C 』to disconnect Express Server')
 })
