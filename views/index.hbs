@@ -28,13 +28,13 @@
     <li class="list-group-item">
       <div class="row align-items-center">
 
-        <h3 class="col-1 text-info text-center mb-0 {{this.icon}}"></h3>
+        <h3 class="col-1 text-info text-center mb-0 {{toIcon this.category}}"></h3>
         <div class="col-6">
           <h4 class="text-secondary mb-0 ">{{this.name}}</h4>
-          <small class="text-black-50">{{this.date}}</small>
+          <small class="text-black-50">{{dateFormat this.date}}</small>
         </div>
 
-        <h4 class="col-2 text-secondary text-end mb-0">{{this.amount}}</h4>
+        <h4 class="col-2 text-secondary text-end mb-0">{{addComma this.amount}}</h4>
 
         <div class="col-3 text-end">
           <a class="btn btn-light me-3" href="/record/{{this.id}}/edit" role="button">修改</a>

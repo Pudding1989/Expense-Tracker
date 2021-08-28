@@ -11,7 +11,8 @@ const routes = require('./routes')
 
 require('./config/mongoose')
 
-app.engine('hbs', exphbs({ defaultLayout: 'main', extname: 'hbs' }))
+//載入自訂 handlebars helper
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: 'hbs',helpers: require('./helper')}))
 app.set('view engine', 'hbs')
 
 app.use(express.static('public'))
