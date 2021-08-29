@@ -35,7 +35,16 @@ module.exports = {
     return date.toISOString().split('T')[0].replace(/-/g, '/')
   },
 
+  dateISOFormat: function (date) {
+    //轉成2021-01-01T16:00:00.000Z，供input的值使用
+    return date.toISOString().split('T')[0]
+  },
+
   todayISOFormat: function () {
     return new Date().toISOString().split("T")[0]
+  },
+
+  valueEqual: function (one, another) {
+    return one === another
   }
 }
