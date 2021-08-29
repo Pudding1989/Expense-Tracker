@@ -14,18 +14,44 @@ router.post('/', async (req, res) => {
   try {
     await Record
       .find()
-      .lean()
-      .then(recordDate => {
-        id = ++recordDate.length
-        console.log(`id: ${id}, date: ${date}, date: ${date}, category: ${category}, amount: ${amount}`)
+      .then(recordData => {
+        id = ++recordData.length
       })
-    
+
     Record
       .create({ id, name, date, category, amount })
       .then(() => res.redirect('/'))
   }
   catch (error) { console.log(error) }
 
+})
+
+// Update Function: for Edit Page
+router.get('/:id/edit', (req, res) => {
+  const id = req.params.id
+
+  Record
+    .findOne({ id })
+    .lean()
+    .then(recordData => res.render('edit', { recordData }))
+    .catch(error => console.error(error))
+})
+
+router.put('/:id', (req, res) => {
+  const id = req.params.id
+  let { name, date, category, amount } = req.body
+  Record
+    .findOne({ id })
+    .then(recordData => {
+      console.log(recordData)
+      recordData.name = name
+      recordData.date = date
+      recordData.category = category
+      recordData.amount = amount
+      return recordData.save()
+    })
+    .then(() => res.redirect('/'))
+    .catch(error => console.error(error))
 })
 
 module.exports = router
