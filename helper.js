@@ -31,7 +31,11 @@ module.exports = {
   },
 
   dateFormat: function (date) {
-    //直接強行直接去掉後面的，把「-」換成「/」
-    return date.toJSON().substring(0, 10).replace(/-/g,'/')
+    //轉成2021-01-01T16:00:00.000Z，再把「-」換成「/」
+    return date.toISOString().split('T')[0].replace(/-/g, '/')
+  },
+
+  todayISOFormat: function () {
+    return new Date().toISOString().split("T")[0]
   }
 }
