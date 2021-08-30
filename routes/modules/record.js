@@ -14,8 +14,10 @@ router.post('/', async (req, res) => {
   try {
     await Record
       .find()
-      .then(recordData => {
-        id = ++recordData.length
+      .sort('-_id') // ==={ _id: desc}
+      .limit(1)
+      .then(lastDoc => {
+        id = ++lastDoc[0].id
       })
 
     Record
