@@ -22,15 +22,14 @@
     </div>
 
     <div class="row justify-content-center align-items-center mb-4">
-      <label for="category" class="col-2 col-form-label col-form-label-lg">日期<span>*</span>：</label>
+      <label for="category" class="col-2 col-form-label col-form-label-lg">類別<span>*</span>：</label>
       <div class="col-4">
         <select name="category" id="category" class="form-select" required>
-          <option>請選擇支出類別</option>
-          <option value="家居物業"></i> 家居物業</option>
-          <option value="交通出行"></i> 交通出行</option>
-          <option value="休閒娛樂"></i> 休閒娛樂</option>
-          <option value="餐飲食品"></i> 餐飲食品</option>
-          <option value="其他"></i> 其他</option>
+          <option value="家居物業">家居物業</option>
+          <option value="交通出行">交通出行</option>
+          <option value="休閒娛樂">休閒娛樂</option>
+          <option value="餐飲食品">餐飲食品</option>
+          <option value="其他">其他</option>
         </select>
       </div>
     </div>
@@ -38,8 +37,10 @@
     <div class="row justify-content-center align-items-center mb-4">
       <label for="amount" class="col-2 col-form-label col-form-label-lg">金額<span>*</span>：</label>
       <div class="col-4">
-        <input type="number" class="form-control" id="amount" name="amount" min="0" step="1" placeholder="請輸入支出項目金額"
-          required>
+        <div class="input-group">
+          <span class="input-group-text">NT＄</span>
+          <input type="number" class="form-control" id="amount" name="amount" min="0" step="1" placeholder="請輸入支出項目金額" required>
+        </div>
       </div>
     </div>
 
