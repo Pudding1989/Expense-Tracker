@@ -38,7 +38,9 @@
 
         <div class="col-3 text-end">
           <a class="btn btn-light me-3" href="/record/{{this.id}}/edit" role="button">修改</a>
-          <a class="btn btn-outline-danger" href="/record/{{this.id}}?_method=DELETE" role="button">刪除</a>
+          <form action="/record/{{ this.id }}?_method=DELETE" method="POST" style="display: inline;">
+          <button class="btn btn-outline-danger" href="" role="button">刪除</button>
+          </form>
         </div>
 
       </div>

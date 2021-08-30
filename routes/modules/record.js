@@ -54,4 +54,14 @@ router.put('/:id', (req, res) => {
     .catch(error => console.error(error))
 })
 
+// Delete Function
+router.delete('/:id', (req, res) => {
+  const id = req.params.id
+  return Record
+    .findOne({ id })
+    .then(recordData => recordData.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.error(error))
+})
+
 module.exports = router
