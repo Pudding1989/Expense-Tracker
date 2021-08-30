@@ -2,18 +2,18 @@
   {{!-- 類別 Dropdowns --}}
   <div class="dropdown text-center">
     <button class="btn btn-outline-secondary btn-lg w-75 dropdown-toggle" type="button" id="dropdownMenuButton1"
-      data-bs-toggle="dropdown" aria-expanded="false">全部類別&emsp;</button>
+      data-bs-toggle="dropdown" aria-expanded="false">{{#if category}} {{category}} {{else}}請選擇類別{{/if}}&emsp;</button>
 
     <ul class="dropdown-menu w-75" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="/filter/household">家居物業</a></li>
-      <li><a class="dropdown-item" href="/filter/traffic">交通出行</a></li>
-      <li><a class="dropdown-item" href="/filter/recreation">休閒娛樂</a></li>
-      <li><a class="dropdown-item" href="/filter/food">餐飲食品</a></li>
-      <li><a class="dropdown-item" href="/filter/other">其他</a></li>
+      <li><a class="dropdown-item" href="/filter/家居物業">家居物業</a></li>
+      <li><a class="dropdown-item" href="/filter/交通出行">交通出行</a></li>
+      <li><a class="dropdown-item" href="/filter/休閒娛樂">休閒娛樂</a></li>
+      <li><a class="dropdown-item" href="/filter/餐飲食品">餐飲食品</a></li>
+      <li><a class="dropdown-item" href="/filter/其他">其他</a></li>
       <li>
         <hr class="dropdown-divider">
       </li>
-      <li><a class="dropdown-item" href="/">全部類別</a></li>
+      <li><a class="dropdown-item" href="/filter/全部類別">全部類別</a></li>
     </ul>
   </div>
 
