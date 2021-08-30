@@ -1,24 +1,27 @@
+// 類別圖示font awesome class name
+const iconSet = require('./models/icon')
+
 module.exports = {
   toIcon: function (category) {
     let iconHTML = ''
 
     switch (category) {
       case '家居物業':
-        iconHTML = 'fas fa-house-user'
+        iconHTML = iconSet.house
         break
       case '交通出行':
-        iconHTML = 'fas fa-shuttle-van'
+        iconHTML = iconSet.van
         break
       case '休閒娛樂':
-        iconHTML = 'fas fa-grin-beam'
+        iconHTML = iconSet.grin
         break
       case '餐飲食品':
-        iconHTML = 'fas fa-utensils'
+        iconHTML = iconSet.tableware
         break
       case '其他':
-        iconHTML = 'fas fa-pen'
+        iconHTML = iconSet.pen
         break
-      default: iconHTML = 'fas fa-pen'
+      default: iconHTML = iconSet.pen
         break
     }
 
