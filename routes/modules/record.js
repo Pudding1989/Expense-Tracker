@@ -1,10 +1,9 @@
 const express = require('express')
-const record = require('../../models/record')
 const router = express.Router()
 
 const Record = require('../../models/record')
 
-//Create Function: for New Page
+// Create Function: for New Page
 router.get('/new', (req, res) => res.render('new'))
 
 router.post('/', async (req, res) => {
@@ -45,12 +44,11 @@ router.put('/:id', (req, res) => {
   Record
     .findOne({ id })
     .then(recordData => {
-      console.log(recordData)
       recordData.name = name
       recordData.date = date
       recordData.category = category
       recordData.amount = amount
-      return recordData.save()
+      recordData.save()
     })
     .then(() => res.redirect('/'))
     .catch(error => console.error(error))
