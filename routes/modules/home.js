@@ -8,10 +8,15 @@ router.get('/', (req, res) => {
     .find()
     .lean()
     .then(recordData => {
-     //計算總金額
+      //計算總金額
       let totalAmount = 0
+      let freeTrial = false
       recordData.forEach(data => totalAmount += data.amount)
-      res.render('index', { recordData, totalAmount })
+      //檢查總金額1億元限制
+      totalAmount >= 100000000 ?
+        ((freeTrial = true), (totalAmount = false))
+        : (freeTrial = false)
+      res.render('index', { recordData, totalAmount, freeTrial })
     })
     .catch(error => console.error(error))
 })

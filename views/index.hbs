@@ -19,7 +19,14 @@
 {{!-- 總金額 --}}
 <div class="totalAmount">
   <h5 class="text-black-50">總金額：</h5>
-  <h1 class="text-center"><small>NT$&thinsp;</small>{{ addComma totalAmount }}<small>&thinsp;元</small></h1>
+  <h1 class="text-center">
+    {{#if freeTrial}}
+    <small>已達免費版</small>&thinsp;1億元&thinsp;<small>上限<br>立即升級商業版，解鎖更多功能
+    </small>
+    {{else}}
+    <small>NT$&thinsp;</small>{{ addComma totalAmount }}<small>&thinsp;元</small>
+  </h1>
+  {{/if}}
 </div>
 {{!-- Record List --}}
 <ul class="list-group container">
