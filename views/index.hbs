@@ -1,56 +1,84 @@
-<section class="container-xl my-5">
-  {{!-- 類別 Dropdowns --}}
-  <div class="dropdown text-center">
-    <button class="btn btn-outline-secondary btn-lg w-75 dropdown-toggle" type="button" id="dropdownMenuButton1"
-      data-bs-toggle="dropdown" aria-expanded="false">{{#if category}} {{category}} {{else}}請選擇類別{{/if}}&emsp;</button>
+{{!-- 類別 Dropdowns --}}
+<div class="dropdown text-center">
+  <button class="btn btn-outline-major btn-lg dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+    aria-expanded="false">{{#if category}} {{category}} {{else}}請選擇類別{{/if}}&emsp;</button>
 
-    <ul class="dropdown-menu w-75" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="/filter/家居物業">家居物業</a></li>
-      <li><a class="dropdown-item" href="/filter/交通出行">交通出行</a></li>
-      <li><a class="dropdown-item" href="/filter/休閒娛樂">休閒娛樂</a></li>
-      <li><a class="dropdown-item" href="/filter/餐飲食品">餐飲食品</a></li>
-      <li><a class="dropdown-item" href="/filter/其他">其他</a></li>
-      <li>
-        <hr class="dropdown-divider">
-      </li>
-      <li><a class="dropdown-item" href="/filter/全部類別">全部類別</a></li>
-    </ul>
-  </div>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="/filter/家居物業">家居物業</a></li>
+    <li><a class="dropdown-item" href="/filter/交通出行">交通出行</a></li>
+    <li><a class="dropdown-item" href="/filter/休閒娛樂">休閒娛樂</a></li>
+    <li><a class="dropdown-item" href="/filter/餐飲食品">餐飲食品</a></li>
+    <li><a class="dropdown-item" href="/filter/其他">其他</a></li>
+    <li>
+      <hr class="dropdown-divider">
+    </li>
+    <li><a class="dropdown-item" href="/filter/全部類別">全部類別</a></li>
+  </ul>
+</div>
 
-  {{!-- 總金額 --}}
-  <div class="my-5 w-50 mx-auto">
-    <h5 class="text-black-50">總金額：</h5>
-    <h1 class="text-center" style="color: Tomato;">{{totalAmount}}</h1>
-  </div>
-  {{!-- Record List --}}
-  <ul class="list-group container mt-5 w-75 mx-auto">
-    {{#each recordData}}
-    <li class="list-group-item">
-      <div class="row align-items-center">
+{{!-- 總金額 --}}
+<div class="totalAmount">
+  <h5 class="text-black-50">總金額：</h5>
+  <h1 class="text-center"><small>NT$&thinsp;</small>{{ addComma totalAmount }}<small>&thinsp;元</small></h1>
+</div>
+{{!-- Record List --}}
+<ul class="list-group container">
+  {{#each recordData}}
+  <li class="list-group-item">
+    <div class="row">
 
-        <h3 class="col-1 text-info text-center mb-0 {{toIcon this.category}}"></h3>
-        <div class="col-6">
+      <i class="col-1 text-info {{toIcon this.category}}"></i>
+
+      <div class="col-11 list-context">
+        <div class="title">
           <h4 class="text-secondary mb-0 ">{{this.name}}</h4>
           <small class="text-black-50">{{dateFormat this.date}}</small>
         </div>
 
-        <h4 class="col-2 text-secondary text-end mb-0">{{addComma this.amount}}</h4>
+        <div class="list-context-right">
+          <h3 class="text-secondary mb-0">{{addComma this.amount}}<small>&thinsp;元</small></h3>
 
-        <div class="col-3 text-end">
-          <a class="btn btn-light me-3" href="/record/{{this.id}}/edit" role="button">修改</a>
-          <form action="/record/{{ this.id }}?_method=DELETE" method="POST" style="display: inline;">
-          <button class="btn btn-outline-danger" href="" role="button">刪除</button>
-          </form>
+          <div class="control">
+            <a class="btn btn-light" href="/record/{{this.id}}/edit" role="button">修改</a>
+
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modal-{{ this.id }}">刪除</button>
+          </div>
         </div>
 
       </div>
-    </li>
-    {{/each}}
-  </ul>
 
-<div class="text-center mt-5">
-  <a class="btn btn-lg w-25" style="background: Tomato; color: snow;" href="/record/new" role="button">新增支出</a>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modal-{{ this.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+    
+          <div class="modal-body row">
+            <i class="col-2 col-xs-1 fas fa-exclamation-circle"></i>
+    
+            <div class="col-10 col-xs-11">
+              <h5 class="text-secondary">確定要刪除『 <span>{{ this.name}}</span> 』這筆帳目嗎？</h5>
+              <p>這筆帳紀錄在&thinsp;{{dateFormat this.date}}&thinsp;，花了&thinsp;<big>{{addComma this.amount}}</big>&thinsp;元，不要刪錯囉～</p>
+            </div>
+          </div>
+    
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">返回</button>
+            <form action="/record/{{ this.id }}?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-outline-danger">確認刪除</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </li>
+  {{/each}}
+</ul>
+
+<div class="text-center">
+  <a class="btn btn-lg btn-major" href="/record/new" role="button">新增支出</a>
 </div>
-
-
-</section>

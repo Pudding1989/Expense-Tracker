@@ -1,52 +1,51 @@
-<section class="container-xl my-5">
+<h2 class="text-subject">請修改你的支出</h2>
+<p class="text-remind">＊為必填欄位</p>
 
-  <h2 class="text-secondary text-center">請修改你的支出</h2>
-  <p class="text-primary text-center">＊為必填欄位</p>
+{{!-- 表單 --}}
+<form class="container mt-5" action="/record/{{ recordData.id }}?_method=PUT" method="POST" needs-validation>
 
-  {{!-- 表單 --}}
-  <form class="container mt-5" action="/record/{{ recordData.id }}?_method=PUT" method="POST" needs-validation>
+  <div class="row">
+    <label for="name" class="col-12 col-sm-3 col-md-2 col-form-label col-form-label-lg">名稱<span>&thinsp;*</span>：</label>
+    <div class="col-12 col-sm-8">
+      <input type="text" class="form-control" id="name" name="name" value="{{recordData.name}}" maxlength="12" placeholder="最多可輸入12個字"
+        required>
+    </div>
+  </div>
 
-    <div class="row justify-content-center align-items-center mb-4">
-      <label for="name" class="col-2 col-form-label col-form-label-lg">名稱<span>*</span>：</label>
-      <div class="col-4">
-        <input type="text" class="form-control" id="name" name="name" value="{{recordData.name}}" placeholder="請輸入支出項目名稱" required>
+  <div class="row">
+    <label for="date" class="col-12 col-sm-3 col-md-2 col-form-label col-form-label-lg">日期<span>&thinsp;*</span>：</label>
+    <div class="col-12 col-sm-8">
+      <input type="date" class="form-control" id="date" name="date" placeholder="{{ todayISOFormat }}"
+        value="{{dateISOFormat recordData.date}}" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <label for="category" class="col-12 col-sm-3 col-md-2 col-form-label col-form-label-lg">日期<span>&thinsp;*</span>：</label>
+    <div class="col-12 col-sm-8">
+      <select name="category" id="category" class="form-select" required>
+        <option value="家居物業" {{#if (valueEqual '家居物業' recordData.category )}}selected{{/if}}>家居物業</option>
+        <option value="交通出行" {{#if (valueEqual '交通出行' recordData.category )}}selected{{/if}}>交通出行</option>
+        <option value="休閒娛樂" {{#if (valueEqual '休閒娛樂' recordData.category )}}selected{{/if}}>休閒娛樂</option>
+        <option value="餐飲食品" {{#if (valueEqual '餐飲食品' recordData.category )}}selected{{/if}}>餐飲食品</option>
+        <option value="其他" {{#if (valueEqual '其他' recordData.category )}}selected{{/if}}>其他</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <label for="amount" class="col-12 col-sm-3 col-md-2 col-form-label col-form-label-lg">金額<span>&thinsp;*</span>：</label>
+    <div class="col-12 col-sm-8">
+      <div class="input-group">
+        <span class="input-group-text">NT＄</span>
+        <input type="number" class="form-control" id="amount" value="{{recordData.amount}}" name="amount" min="0" step="1" max="999999" placeholder="單筆金額須低於10萬元" autofocus required>
       </div>
     </div>
+  </div>
 
-    <div class="row justify-content-center align-items-center mb-4">
-      <label for="date" class="col-2 col-form-label col-form-label-lg">日期<span>*</span>：</label>
-      <div class="col-4">
-        <input type="date" class="form-control" id="date" name="date" placeholder="{{ todayISOFormat }}" value="{{dateISOFormat recordData.date}}" required>
-      </div>
-    </div>
+  {{!-- 按鈕 --}}
+  <div class="col-12 text-center">
+    <button type="submit" class="btn btn-lg btn-major">送出</button>
+  </div>
 
-    <div class="row justify-content-center align-items-center mb-4">
-      <label for="category" class="col-2 col-form-label col-form-label-lg">日期<span>*</span>：</label>
-      <div class="col-4">
-        <select name="category" id="category" class="form-select" required>
-          <option value="家居物業" {{#if (valueEqual '家居物業' recordData.category )}}selected{{/if}}>家居物業</option>
-          <option value="交通出行" {{#if (valueEqual '交通出行' recordData.category )}}selected{{/if}}>交通出行</option>
-          <option value="休閒娛樂" {{#if (valueEqual '休閒娛樂' recordData.category )}}selected{{/if}}>休閒娛樂</option>
-          <option value="餐飲食品" {{#if (valueEqual '餐飲食品' recordData.category )}}selected{{/if}}>餐飲食品</option>
-          <option value="其他" {{#if (valueEqual '其他' recordData.category )}}selected{{/if}}>其他</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="row justify-content-center align-items-center mb-4">
-      <label for="amount" class="col-2 col-form-label col-form-label-lg">金額<span>*</span>：</label>
-      <div class="col-4">
-        <div class="input-group">
-          <span class="input-group-text">NT＄</span>
-          <input type="number" class="form-control" id="amount" value="{{recordData.amount}}" name="amount" min="0" step="1" placeholder="請輸入支出項目金額" autofocus required>
-        </div>
-      </div>
-    </div>
-
-    {{!-- 按鈕 --}}
-    <div class="col-12 text-center mt-5">
-      <button type="submit" class="btn btn-lg w-25" style="background: Tomato; color: snow;">送出</button>
-    </div>
-
-  </form>
-</section>
+</form>

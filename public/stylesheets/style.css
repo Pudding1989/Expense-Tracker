@@ -1,0 +1,404 @@
+:root {
+  --major: #ff6600;
+  --major-darker: #cc5100;
+  --major-lighter: #ff7519;
+
+  --theme-white: #ffefe5;
+
+  --btn-shadow: rgba(255, 102, 0, 0.25);
+}
+
+main {
+  margin: 3.5rem auto 5rem;
+  min-width: calc(380px + 12px + 12px);
+}
+
+::selection {
+  background-color: var(--theme-white);
+  color: #b24700;
+}
+
+/* 主按鈕行為 */
+.btn-major {
+  min-width: 70%;
+  background-color: var(--major);
+  color: var(--theme-white);
+  transition: all 0.675s ease-out;
+}
+
+.btn-major:hover {
+  background-color: var(--major-darker);
+  color: white;
+}
+
+.btn-major:focus {
+  box-shadow: 0 0 0 0.25rem var(--btn-shadow);
+}
+
+/* 導航列標題 */
+.navbar-light .navbar-brand:hover {
+  color: var(--major-darker);
+  transition: all 0.425s ease-out;
+}
+
+/* 下拉選單行為 */
+.btn-outline-major {
+  min-width: 70%;
+  border-color: var(--major);
+  color: var(--major);
+  transition: all 0.675s ease-in-out;
+}
+
+.btn-outline-major:hover,
+.btn-outline-major:focus-within {
+  background-color: var(--major-darker);
+  color: var(--theme-white);
+}
+
+.btn-outline-major:focus {
+  max-width: 70%;
+  box-shadow: 0 0 0 0.25rem var(--btn-shadow);
+}
+
+.dropdown-menu.show {
+  min-width: 70%;
+  opacity: 95%;
+  background-color: var(--major);
+  border-color: var(--theme-white);
+}
+
+.dropdown-item {
+  color: var(--theme-white);
+  font-size: 1.25rem;
+}
+
+.dropdown-item:hover {
+  background-color: #ffd1b2;
+  color: var(--major-darker);
+}
+
+.dropdown-divider {
+  margin: 3px 0;
+  color: var(--theme-white);
+  border-color: var(--theme-white);
+}
+
+/* 總金額區塊 */
+.totalAmount {
+  max-width: 65%;
+  margin: 2.5rem auto;
+}
+
+.totalAmount h5 {
+  font-size: 1.5rem;
+  transition: all 1.25s ease-in-out;
+}
+
+.totalAmount small,
+.modal-body small {
+  font-size: 1.25rem;
+}
+
+.totalAmount h1 {
+  font-size: 3.75rem;
+  color: var(--major);
+  word-break: keep-all;
+  transition: all 1.25s ease-in-out;
+  animation: zoom 0.575s ease-in-out;
+}
+
+@keyframes zoom {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(0.8);
+  }
+  40% {
+    transform: scale(1.35);
+  }
+  60% {
+    transform: scale(0.85);
+  }
+  85% {
+    transform: scale(1.2);
+  }
+}
+
+/* 首頁列表排版*/
+.list-group {
+  min-width: calc(360px + 10%);
+  max-width: 90vw;
+  margin: 2.5rem auto 2.5rem;
+}
+
+.list-group-item {
+  transition: all 0.2s ease-out;
+}
+
+.list-group-item:nth-child(odd) {
+  background-color: rgba(255, 239, 229, 0.5);
+}
+
+.list-group-item:hover {
+  background-color: rgba(255, 178, 127, 0.4);
+}
+
+.list-group-item .row {
+  align-items: center;
+}
+
+/* 首頁列表左側 */
+.list-context {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-context h4 {
+  transition: all 1.25s ease-in-out;
+}
+
+/* 圖示 */
+.fas {
+  font-size: 2rem;
+  text-align: center;
+  transition: all 1.65s ease-out;
+}
+
+.fas:hover {
+  animation: shake 0.65s ease-in;
+  transform-origin: top center;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-15deg);
+  }
+  40% {
+    transform: rotate(15deg);
+  }
+  60% {
+    transform: rotate(-5deg);
+  }
+  80% {
+    transform: rotate(5deg);
+  }
+}
+
+/* 首頁列表右側 */
+.list-context-right {
+  display: flex;
+}
+
+.list-context-right h3,
+.control form {
+  display: inline;
+}
+
+.list-context-right h3 {
+  text-align: end;
+  transition: all 1.25s ease-in-out;
+}
+
+.list-context-right small {
+  font-size: 0.85rem;
+}
+
+/* 首頁修改按鈕 */
+.btn-light,
+.btn-outline-danger {
+  margin-left: 0.5rem;
+  word-break: keep-all;
+  transition: all 0.25s ease-in-out;
+}
+
+/* 修改按鈕 */
+.btn-light {
+  border: 0.75px lightgray solid;
+}
+
+.btn-light:hover {
+  background-color: var(--major-lighter);
+  color: var(--theme-white);
+}
+
+.btn-light:focus {
+  box-shadow: 0 0 0 0.25rem var(--btn-shadow);
+}
+
+/* 新增頁與修改頁 */
+.text-subject,
+.text-remind {
+  text-align: center;
+}
+
+.text-subject {
+  font-size: 2.25rem;
+  color: DarkGray;
+}
+
+.text-remind {
+  color: var(--major-darker);
+}
+
+form div.row {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+button.btn-major {
+  margin-top: 2.5rem;
+}
+
+form label span {
+  color: var(--major-darker);
+}
+
+form label {
+  color: dimgray;
+  text-align: center;
+}
+
+.form-control,
+.form-select {
+  transition: all 0.425s ease-out;
+}
+
+.form-control:focus,
+.form-select:focus {
+  box-shadow: 0 0 0 0.25rem var(--btn-shadow);
+  border-color: var(--major-darker);
+}
+
+/* modal */
+.modal-body .fas {
+  font-size: 2.75rem;
+  color: var(--major-lighter);
+}
+
+.modal-body .fas {
+  animation: shake 0.75s 0.35s ease-in;
+  transform-origin: bottom center;
+}
+
+.modal-footer .btn-outline-danger:hover {
+  animation: vibrate 0.75s ease-out;
+}
+
+@keyframes vibrate {
+  10%,
+  90% {
+    transform: translate3d(-2%, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(4%, 0, 0);
+  }
+
+  30%,
+  70% {
+    transform: translate3d(-4%, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(10%, 0, 0);
+  }
+  
+  50% {
+    transform: translate3d(-10%, 0, 0);
+  }
+}
+
+
+.modal-body h5 {
+  color: dimgray;
+  margin-bottom: 0;
+}
+
+.modal-body span {
+  color: var(--major-darker);
+}
+
+.modal-body p {
+  color: gray;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  /* 首頁 */
+  /* 總金額 */
+  .totalAmount {
+    max-width: 85%;
+  }
+
+  .totalAmount h1 {
+    font-size: 3rem;
+  }
+
+  /* 圖示 */
+  .fas {
+    font-size: 1.75rem;
+  }
+
+  /* 支出標題 */
+  .list-context h4 {
+    font-size: 1.25rem;
+    word-break: break-all;
+  }
+
+  /* 項目支出金額 */
+  .list-context-right {
+    align-items: center;
+  }
+
+  .list-context-right h3 {
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+    word-break: break-all;
+  }
+
+  .control .btn-outline-danger {
+    display: block;
+  }
+
+  /* 首頁修改、刪除按鈕 */
+  .btn-light,
+  .btn-outline-danger {
+    margin-top: 0.5rem;
+  }
+
+  /* 新增頁與修改頁 */
+  form label {
+    text-align: start;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .list-context-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .totalAmount h1 {
+    font-size: 2.5rem;
+  }
+
+  .totalAmount h5 {
+    font-size: 1.25rem;
+  }
+
+  .title {
+    margin: 0 0.5rem;
+    padding-left: 0.5rem;
+  }
+}
