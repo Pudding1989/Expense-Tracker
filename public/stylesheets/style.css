@@ -137,7 +137,7 @@ main {
   transition: all 0.2s ease-out;
 }
 
-.list-group-item:nth-child(odd) {
+.list-group-item:nth-child(even) {
   background-color: rgba(255, 239, 229, 0.5);
 }
 

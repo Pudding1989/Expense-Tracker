@@ -1,7 +1,13 @@
 {
-  "house": "fas fa-house-user", 
-  "van": "fas fa-shuttle-van", 
-  "grin": "fas fa-grin-beam", 
-  "tableware": "fas fa-utensils", 
-  "pen": "fas fa-pen"
+  "house": "fas fa-house-user",
+  "van": "fas fa-shuttle-van",
+  "grin": "fas fa-grin-beam",
+  "tableware": "fas fa-utensils",
+  "pen": "fas fa-pen",
+  "tear": "fas fa-grin-squint-tears",
+  "list": "fas fa-list-ol",
+  "wink": "fas fa-grin-wink",
+  "poo": "fas fa-poo",
+  "unlock": "fas fa-lock-open",
+  "shopping": "fas fa-shopping-basket"
 }

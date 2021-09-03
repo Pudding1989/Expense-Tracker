@@ -21,6 +21,25 @@ module.exports = {
       case '其他':
         iconHTML = iconSet.pen
         break
+      //隱藏版圖示
+      case '笑死':
+        iconHTML = iconSet.tear
+        break
+      case '笑瞇瞇':
+        iconHTML = iconSet.wink
+        break
+      case '清單':
+        iconHTML = iconSet.list
+        break
+      case '咖哩':
+        iconHTML = iconSet.poo
+        break
+      case '解鎖':
+        iconHTML = iconSet.unlock
+        break
+      case '購物籃':
+        iconHTML = iconSet.shopping
+        break
       default: iconHTML = iconSet.pen
         break
     }

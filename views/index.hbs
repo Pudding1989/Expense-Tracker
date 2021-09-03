@@ -1,7 +1,6 @@
 {{!-- 類別 Dropdowns --}}
 <div class="dropdown text-center">
-  <button class="btn btn-outline-major btn-lg dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-    aria-expanded="false">{{#if category}} {{category}} {{else}}請選擇類別{{/if}}&emsp;</button>
+  <button class="btn btn-outline-major btn-lg dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">{{#if category}} {{category}} {{else}}請選擇類別{{/if}}&emsp;</button>
 
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
     <li><a class="dropdown-item" href="/filter/家居物業">家居物業</a></li>
@@ -21,16 +20,16 @@
   <h5 class="text-black-50">總金額：</h5>
   <h1 class="text-center">
     {{#if freeTrial}}
-    <small>已達免費版</small>&thinsp;1億元&thinsp;<small>上限<br>立即升級商業版，解鎖更多功能
-    </small>
+    <small>已達免費版</small>&thinsp;1億元&thinsp;<small>上限<br>立即訂閱商業版，解鎖更多功能</small>
     {{else}}
     <small>NT$&thinsp;</small>{{ addComma totalAmount }}<small>&thinsp;元</small>
   </h1>
   {{/if}}
 </div>
+
 {{!-- Record List --}}
 <ul class="list-group container">
-  {{#each recordData}}
+  {{#if recordData}} {{#each recordData}}
   <li class="list-group-item">
     <div class="row">
 
@@ -62,16 +61,16 @@
           <div class="modal-header">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-    
+
           <div class="modal-body row">
             <i class="col-2 col-xs-1 fas fa-exclamation-circle"></i>
-    
+
             <div class="col-10 col-xs-11">
               <h5 class="text-secondary">確定要刪除『 <span>{{ this.name}}</span> 』這筆帳目嗎？</h5>
               <p>這筆帳紀錄在&thinsp;{{dateFormat this.date}}&thinsp;，花了&thinsp;<big>{{addComma this.amount}}</big>&thinsp;元，不要刪錯囉～</p>
             </div>
           </div>
-    
+
           <div class="modal-footer">
             <button type="button" class="btn btn-light" data-bs-dismiss="modal">返回</button>
             <form action="/record/{{ this.id }}?_method=DELETE" method="POST">
@@ -84,6 +83,13 @@
     </div>
   </li>
   {{/each}}
+  {{!-- 無資料提示 --}}
+  {{else}}
+  <li class="list-group-item text-subject">
+    <i class="fas fa-sad-tear"></i>
+    <h5>唉呦，這裡沒有帳目了捏</h5>
+  </li>
+  {{/if}}
 </ul>
 
 <div class="text-center">
