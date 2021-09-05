@@ -53,17 +53,18 @@ module.exports = {
   },
 
   dateFormat: function (date) {
-    // 直接轉成 2021-01-01格式，再把「-」換成「/」
+    // 轉成 2021-1-1 00:00:00格式，再把「-」換成「/」
     return date.toLocaleString('zh-TW').split(' ')[0].replace(/-/g, '/')
   },
 
   dateTWFormat: function (date) {
-    // 直接轉成 2021-01-01格式，供input的值使用
-    return date.toLocaleString('zh-TW', { year: 'numeric', month: "2-digit", day: "2-digit" })
+    // 符合 chrome input時間格式 YYYY-MM-DD 格式
+    // 轉成 2021/01/01 格式，再把「/」換成「-」供input的值使用
+    return date.toLocaleString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(new RegExp('/', 'g'), '-')
   },
 
   todayTW: function () {
-    return new Date().toLocaleString('zh-TW', { year: 'numeric', month: "2-digit", day: "2-digit" })
+    return new Date().toLocaleString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(new RegExp('/', 'g'), '-')
   },
 
   valueEqual: function (one, another) {
