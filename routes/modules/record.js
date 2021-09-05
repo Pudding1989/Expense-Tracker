@@ -22,9 +22,7 @@ router.post('/', async (req, res) => {
     Record
       .create({ id, name, date, category, amount })
       .then(() => res.redirect('/'))
-  }
-  catch (error) { console.log(error) }
-
+  } catch (error) { console.log(error) }
 })
 
 // Update Function: for Edit Page
@@ -40,7 +38,7 @@ router.get('/:id/edit', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id
-  let { name, date, category, amount } = req.body
+  const { name, date, category, amount } = req.body
   Record
     .findOne({ id })
     .then(recordData => {

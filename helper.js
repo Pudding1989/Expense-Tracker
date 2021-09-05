@@ -21,7 +21,7 @@ module.exports = {
       case '其他':
         iconHTML = iconSet.pen
         break
-      //隱藏版圖示
+      // 隱藏版圖示
       case '笑死':
         iconHTML = iconSet.tear
         break
@@ -47,9 +47,9 @@ module.exports = {
     return iconHTML
   },
 
-  //加千分位符號
+  // 加千分位符號
   addComma: function (currency) {
-    return currency.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    return currency.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   },
 
   dateFormat: function (date) {
